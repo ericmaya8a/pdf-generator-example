@@ -40,13 +40,14 @@ function App() {
 
   const createAndDownloadPDF = () => {
     handleLoading(true);
-    // axios.post('/api/v1/create-pdf', state)
-    //   .then(() => axios.get('/api/fetch-pdf', { responseType: 'blob'}))
-    //   .then(response => {
-    //     console.log(response.data);
-    //     const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
-    //     saveAs(pdfBlob, `Receipt_number_${state.receiptId}.pdf`);
-    //   });
+    // This code is comment because is the version1 example with create pdf
+    /* axios.post('/api/v1/create-pdf', state)
+      .then(() => axios.get('/api/fetch-pdf', { responseType: 'blob'}))
+      .then(response => {
+        console.log(response.data);
+        const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
+        saveAs(pdfBlob, `Receipt_number_${state.receiptId}.pdf`);
+      }); */
     axios.post('/api/v2/create-pdf', state, { responseType: 'blob' })
       .then(response => {
         const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
